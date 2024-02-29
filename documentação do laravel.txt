@@ -1,0 +1,117 @@
+Configuração do Laravel 8+
+
+Instalar o Laravel
+
+Precisa ter o servidor php poder ser o xamp
+Precisa do composer para rodar o laravel https://getcomposer.org/
+
+
+- artisan - criar as tabelas no banco de dados
+- migrations - ajudar nós trabalhar com banco de dados criar e deleta os registros
+- blade - ajudar criar o layoutt
+
+Para criar um novo projeto em Laravel
+composer create-project --prefer-dist laravel/laravel hdeventes
+
+Para rodar um projeto no PHP
+php artisan serve
+
+
+Rotas - vai acessar as páginas do nosso projetos as views
+		e definir as Actions da controller p
+
+public - eu consigo colocar os arquivos estáticos js e o css.
+
+- para criar uma controller
+php artisan make:controller eventController
+
+- Conexão do banco de dados MySQL .env eu coloco as conexação consigo passa a configuração do Mysql
+
+php artisan migrate - para rodar a migrations
+
+- para criar a propia migration para  criar produto
+php artisan make:migration create_product_table
+
+- para verificar ser a migration foi criado no banco
+php artisan migrate:status
+
+para depois de ter criado a migrate e atualizar o banco
+- php artisan migrate - para rodar a migrations
+
+para atualizar e adiconar um campo na tabela e com o comando
+- php artisan migrate:fresh
+tem que tomar cuidado com fresh que paga todos os registros da tabela
+
+Comando para atualizar um campo na table product
+- php artisan make:migration add_cagetory_to_products_table
+
+
+Para retorna uma migration
+- php artisan  migrate:rollback
+
+
+Eloquent
+Eloquent é a ORM do Laravel
+Cada tabela tem um Model que é responsável pela interação das requisições ao banco de dados
+
+Para criar uma uma model
+php artisan make:model Event
+
+-Flash Message
+Podemos adicionar mensagens ao usário por session de erro um atenção atráves da controller
+
+para atualizar uma migration para adicionar um campo
+php artisan make:migration add_image_to_events_table
+
+
+
+- Jetstream é autenticação do laravel
+- Precisar instalar com o composer jetstream
+- LiveWare para vim com a parte do layout pronto.
+
+para instalar o jetstream
+- composer require laravel/jetstream
+para instalar o livewire precisa ter o jetstream instalado
+- php artisan jetstream:install livewire
+
+depois rodar instalar criar a migratation para salvar no banco de dados
+php artisan migrate
+
+depois precisar rodar o node
+
+npm install
+npm run dev
+
+@auth
+// é quando o usuário está autenticado
+
+@guest
+// é quando o usuário não tem autenticação.
+
+
+@oneToMany ->
+
+
+// teste TDD phpUNIT
+laravel new laravel-test auth
+
+
+php artisan make:test API/BooksControllerTest
+
+- php artisan make:job TestJob para criar um job
+- php artisan queue:table para criar uma tabela no banco de dados
+- php artisan queue:work
+- App\Jobs
+Filas e jobs Laravel
+
+
+config/queue
+
+
+
+    "id": 1,
+    "title": "Uma Atividade novaa",
+    "description": "Tem que ser realizado até semana que vem",
+    "created": 1,
+    "updated": 0,
+    "delete": 0
